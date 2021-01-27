@@ -11,6 +11,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 
 @SuppressWarnings("unused")
@@ -147,6 +148,12 @@ public abstract class AbstractMessage<MessageId extends Enum<MessageId>, Macro e
 						// if entry type is Number, set value to time string
 						if (entry.getValue() instanceof Number) {
 							entry.setValue(LanguageManager.getInstance().getTimeString((Long) entry.getValue()));
+						}
+						break;
+					case "DURATION_MINUTES":
+						// if entry type is Number, set value to time string
+						if (entry.getValue() instanceof Number) {
+							entry.setValue(LanguageManager.getInstance().getTimeString((Long) entry.getValue(), TimeUnit.MINUTES));
 						}
 						break;
 					default:
